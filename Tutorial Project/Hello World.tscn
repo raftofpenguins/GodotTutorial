@@ -1,4 +1,6 @@
-[gd_scene format=2]
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Hello.gd" type="Script" id=1]
 
 [node name="Hello World" type="Label"]
 margin_right = 40.0
@@ -13,6 +15,7 @@ margin_left = 204.0
 margin_top = 101.0
 margin_right = 563.0
 margin_bottom = 398.0
+script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -30,3 +33,7 @@ margin_top = 118.0
 margin_right = 236.0
 margin_bottom = 206.0
 text = "Press Me"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="Panel/Button" to="Panel" method="_on_Button_pressed"]
