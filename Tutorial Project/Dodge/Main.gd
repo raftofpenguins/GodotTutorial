@@ -3,16 +3,8 @@ extends Node
 export (PackedScene) var Mob
 var score
 
-func game_over():
-	$ScoreTimer.stop()
-	$MobTimer.stop()
-
-func new_game():
-	score = 0
-	$Player.start($StartPosition.position)
-	$StartTimer.start()
-
 func _on_StartTimer_timeout():
+	print("Timer timeout")
 	$MobTimer.start()
 	$ScoreTimer.start()
 
@@ -39,3 +31,13 @@ func _on_MobTimer_timeout():
 func _ready():
 	randomize()
 	new_game()
+
+func game_over():
+	$ScoreTimer.stop()
+	$MobTimer.stop()
+
+func new_game():
+	score = 0
+	$Player.start($StartPosition.position)
+	$StartTimer.start()
+	print("New game!")
