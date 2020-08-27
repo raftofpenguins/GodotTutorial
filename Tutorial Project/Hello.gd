@@ -1,16 +1,15 @@
 extends Panel
 
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
+# Deleted default text; created the following with the guidance of Godot Documentation tutorial
+# Source: https://docs.godotengine.org/en/stable/getting_started/step_by_step/scripting.html
 
+# Using Node.get_node() and Object.connect()
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	get_node("Button").connect("pressed", self, "_on_Button_pressed")
 
+func _on_Button_pressed():
+	get_node("Label").text = "HELLO!"
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+ 
