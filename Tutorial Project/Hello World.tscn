@@ -7,3 +7,26 @@ text = "Hello, world!"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Panel" type="Panel" parent="."]
+margin_left = 204.0
+margin_top = 101.0
+margin_right = 563.0
+margin_bottom = 398.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Panel"]
+margin_left = 132.0
+margin_top = 64.0
+margin_right = 255.0
+margin_bottom = 109.0
+text = "This is a label"
+
+[node name="Button" type="Button" parent="Panel"]
+margin_left = 114.0
+margin_top = 118.0
+margin_right = 236.0
+margin_bottom = 206.0
+text = "Press Me"
