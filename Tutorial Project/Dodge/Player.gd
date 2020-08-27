@@ -1,5 +1,7 @@
 extends Area2D
 
+signal hit
+
 export var speed = 400 	# How fast the player moves (pixels/sec); export => editor
 var screen_size 		# Size of game window
 
@@ -7,6 +9,7 @@ var screen_size 		# Size of game window
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	screen_size = get_viewport_rect().size
+	hide()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -33,3 +36,25 @@ func _process(delta):
 	position += velocity * delta
 	position.x = clamp(position.x, 0, screen_size.x)
 	position.y = clamp(position.y, 0, screen_size.y)
+
+	# Choosing proper animations
+	if velocity.x != 0:
+		$AnimatedSprite.animation = "walk"
+		$AnimatedSprite.flip_v = false
+		$AnimatedSprite.flip_h = velocity.x < 0
+	elif velocity.y != 0:
+		$AnimatedSprite.animation = "up"
+		$AnimatedSprite.flip_v = velocity.y > 0
+
+	# Shorthand boolean format -- flip on the basis of whether conditional is true or false
+
+func _on_Player_body_entered(body):
+	hide()
+	emit_signal("hit")									
+	$CollisionShape2D.set_deferred("disabled", true)	# disables hitbox so hit doesn't happen again
+
+# Resets player when starting new game
+func start(pos):
+	position = pos
+	show()
+	$CollisionShape2D.disabled = false
