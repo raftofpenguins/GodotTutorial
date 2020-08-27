@@ -30,7 +30,7 @@ func _on_MobTimer_timeout():
 
 func _ready():
 	randomize()
-	new_game()
+	#new_game()
 
 func game_over():
 	$ScoreTimer.stop()
