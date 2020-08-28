@@ -30,7 +30,9 @@ animations = [ {
 radius = 32.1833
 height = 8.44449
 
-[node name="RigidBody2D" type="RigidBody2D"]
+[node name="RigidBody2D" type="RigidBody2D" groups=[
+"mobs",
+]]
 position = Vector2( 85.5263, 354.578 )
 collision_mask = 0
 gravity_scale = 0.0
@@ -43,6 +45,7 @@ __meta__ = {
 scale = Vector2( 0.75, 0.75 )
 frames = SubResource( 1 )
 animation = "fly"
+frame = 1
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
